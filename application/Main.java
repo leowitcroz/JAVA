@@ -3,42 +3,22 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Product;
+import entities.Rectangle;
 
 public class Main {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+        Rectangle rectangle = new Rectangle();
 
-        Product product = new Product();
+        System.out.println("Set the Width and the Height of your rectangle: ");
 
-        System.out.println("Enter Product data: ");
+        rectangle.Width = sc.nextDouble();
+        rectangle.Height = sc.nextDouble();
 
-        System.out.println("Name: ");
-        product.name = sc.nextLine();
-
-        System.out.println("Price: ");
-        product.price = sc.nextDouble();
-
-        System.out.println("Quantity");
-        product.quantity = sc.nextInt();
-
-        System.err.println();
-        System.err.println("Product Data " + product.toString());
-
-        System.out.println("Enter the number of products to be added in stock: ");
-        int quantity = sc.nextInt();
-        product.addProducts(quantity);
-
-        System.err.println("Updated Product Data " + product.toString());
-
-        System.err.println();
-
-        System.out.println("Enter the number of products to be removed in stock: ");
-        quantity = sc.nextInt();
-        product.removeProducts(quantity);
-
-        System.err.println("Updated Product Data " + product.toString());
+        System.out.println("Area " + rectangle.area());
+        System.out.println("Perimiter " + rectangle.perimiter());
+        System.out.println("Diagonal " + rectangle.diagonal());
 
         sc.close();
     };
