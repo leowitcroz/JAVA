@@ -3,43 +3,42 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Triangle;
+import entities.Product;
 
 public class Main {
     public static void main(String[] args) {
-
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        Triangle x, y;
+        Product product = new Product();
 
-        x = new Triangle();
-        y = new Triangle();
+        System.out.println("Enter Product data: ");
 
-        System.out.println("Enter de measures of the triangle X: ");
+        System.out.println("Name: ");
+        product.name = sc.nextLine();
 
-        x.a = sc.nextDouble();
-        x.b  = sc.nextDouble();
-        x.c  = sc.nextDouble();
+        System.out.println("Price: ");
+        product.price = sc.nextDouble();
 
-        System.out.println("Enter de measures of the triangle Y: ");
+        System.out.println("Quantity");
+        product.quantity = sc.nextInt();
 
-        y.a = sc.nextDouble();
-        y.b = sc.nextDouble();
-        y.c = sc.nextDouble();
+        System.err.println();
+        System.err.println("Product Data " + product.toString());
 
-        double areaX = x.area();
+        System.out.println("Enter the number of products to be added in stock: ");
+        int quantity = sc.nextInt();
+        product.addProducts(quantity);
 
-        double areaY = y.area();
+        System.err.println("Updated Product Data " + product.toString());
 
-        System.out.printf("Triangle X Area : %.4f%n", areaX);
-        System.out.printf("Triangle Y Area : %.4f%n", areaY);
+        System.err.println();
 
-        if (areaX > areaY) {
-            System.out.println("Lager area X");
-        } else {
-            System.err.println("Larger Area Y");
-        }
+        System.out.println("Enter the number of products to be removed in stock: ");
+        quantity = sc.nextInt();
+        product.removeProducts(quantity);
+
+        System.err.println("Updated Product Data " + product.toString());
 
         sc.close();
     };
