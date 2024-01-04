@@ -3,22 +3,21 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Rectangle;
+import utils.Calculator;
 
 public class Main {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        Rectangle rectangle = new Rectangle();
+        Calculator calc = new Calculator();
 
-        System.out.println("Set the Width and the Height of your rectangle: ");
+        double radius = sc.nextDouble();
+        double c = calc.circumference(radius);
+        double v = calc.volume(radius);
 
-        rectangle.Width = sc.nextDouble();
-        rectangle.Height = sc.nextDouble();
-
-        System.out.println("Area " + rectangle.area());
-        System.out.println("Perimiter " + rectangle.perimiter());
-        System.out.println("Diagonal " + rectangle.diagonal());
+        System.out.printf("Circunference: %.2f%n", c);
+        System.out.printf("Volume: %.2f%n", v);
+        System.out.printf("Pi: %.2f%n", calc.PI);
 
         sc.close();
     };
