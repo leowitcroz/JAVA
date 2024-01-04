@@ -3,20 +3,24 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
-import utils.Calculator;
+import utils.CurrencyConverter;
 
 public class Main {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        double radius = sc.nextDouble();
-        double c = Calculator.circumference(radius);
-        double v = Calculator.volume(radius);
+        System.out.println("What is the price of the dollar: ");
 
-        System.out.printf("Circunference: %.2f%n", c);
-        System.out.printf("Volume: %.2f%n", v);
-        System.out.printf("Pi: %.2f%n", Calculator.PI);
+        double dollar = sc.nextDouble();
+
+        System.out.println("How many dollars will you buy: ");
+   
+        double quantityDollar = sc.nextDouble();
+
+        double priceToPay = CurrencyConverter.dollarToRealWithIof(dollar,quantityDollar);
+
+        System.out.printf("Amount to be paid: %.2f%n", priceToPay);
 
         sc.close();
     };
